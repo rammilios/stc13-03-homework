@@ -4,41 +4,41 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class MathBox {
+public class MathBox extends ObjectBox {
 
-    public Set<Integer> values;
+    public Set<Number> array;
 
-    public MathBox(Integer[] in) {
-        values = new TreeSet<Integer>();
-        values.addAll(Arrays.asList(in));
+    public MathBox(Number[] in) {
+        array = new TreeSet<Number>();
+        array.addAll(Arrays.asList(in));
     }
 
-    public int summator() {
-        int result = 0;
-        for (Integer i : values) {
-            result += i;
+    public Double summator() {
+        Double result = 0d;
+        for (Number i : array) {
+            result = result + i.doubleValue();
         }
         return result;
     }
 
-    public Set splitter(int a) throws Exception {
-        if (a==0) {
+    public Set splitter(Number a) throws Exception {
+        if (a==null) {
             throw new Exception("Devided by 0");
         }
         TreeSet devided = new TreeSet();
-        for (Integer i : values) {
-            devided.add(i / a);
+        for (Number i : array) {
+            devided.add(i.doubleValue() / a.doubleValue());
         }
         return devided;
     }
 
-    public void delete(int b) {
-        values.remove(b);
+    public void delete(Number b) {
+        array.remove(b);
     }
 
     @Override
     public String toString() {
-        return values.toString();
+        return array.toString();
     }
 
     @Override
@@ -48,11 +48,11 @@ public class MathBox {
 
         MathBox mathBox = (MathBox) o;
 
-        return values != null ? values.equals(mathBox.values) : mathBox.values == null;
+        return array != null ? array.equals(mathBox.array) : mathBox.array == null;
     }
 
     @Override
     public int hashCode() {
-        return values != null ? values.hashCode() : 0;
+        return array != null ? array.hashCode() : 0;
     }
 }
