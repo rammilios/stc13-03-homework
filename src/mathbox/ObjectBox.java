@@ -1,8 +1,9 @@
 package mathbox;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class ObjectBox {
+public class ObjectBox implements Serializable {
 
     public Collection<Object> array;
 

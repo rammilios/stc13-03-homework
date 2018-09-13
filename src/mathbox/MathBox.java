@@ -1,10 +1,11 @@
 package mathbox;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class MathBox extends ObjectBox {
+public class MathBox extends ObjectBox implements Serializable{
 
     public Set<Number> array;
 
